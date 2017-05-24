@@ -29,6 +29,5 @@ public class JavaClientTest {
 			client.close();
 			//nothing
 		//欧克
-			//
 	}
 }
