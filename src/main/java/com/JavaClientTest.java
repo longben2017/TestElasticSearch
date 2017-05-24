@@ -26,5 +26,6 @@ public class JavaClientTest {
 			String a = response.getSourceAsString();
 			System.out.println(a);
 			client.close();
+			
 	}
 }
