@@ -27,5 +27,6 @@ public class JavaClientTest {
 			System.out.println(a);
 			client.close();
 			//nothing
+			
 	}
 }
