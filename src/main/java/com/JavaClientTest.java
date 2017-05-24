@@ -24,6 +24,7 @@ public class JavaClientTest {
 			GetResponse response = client.prepareGet("twitter","tweet","1")
 					.execute().actionGet();
 			String a = response.getSourceAsString();
+	//what?
 			System.out.println(a);
 			client.close();
 			//nothing
