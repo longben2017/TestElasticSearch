@@ -2,41 +2,49 @@ package com;
 
 import java.io.IOException;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
+import org.junit.Before;
+import org.junit.Test;
 
-import okhttp3.ResponseBody;
-import retrofit2.Call;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-import retrofit2.http.GET;
-import retrofit2.http.HEAD;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 public class Retrofit2Demo {
-	public interface Search{
-		@HEAD("/twitter")
-		Call<Void> getIndexExist();
-		
-		@GET("/twitter/_search")
-		Call<TwitterInfo> getDocs();
-	}
+	SearchApi searchApi;
 	
-	public static void main(String[] args) {
+	@Before
+	public void before(){
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		Retrofit retrofit = new Retrofit.Builder()
-		.baseUrl("http://192.168.64.130:9200/")
-		.addConverterFactory(GsonConverterFactory.create(gson))
+		.baseUrl("http://192.168.137.128:9200/")
+		.addConverterFactory(GsonConverterFactory.create())
 		.build();
-		Search service = retrofit.create(Search.class);
+		searchApi = retrofit.create(SearchApi.class);
+	}
+	
+	
+	@Test
+	public void getDocsTest(){
 		try {
-			//int code = service.getIndexExist().execute().code();
-			//System.out.println(code);
-			Response response = service.getDocs().execute();
-			TwitterInfo twitterInfo = (TwitterInfo)response.body();
-			System.out.println(twitterInfo.isTime_out());
+			Response<AccountInfo> response = searchApi.getDocs().execute();
+			AccountInfo accountInfo = (AccountInfo)response.body();
+			System.out.println(accountInfo);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	@Test
+	public void getIndexExistTest(){
+		int code = 0;
+		try {
+			code = searchApi.getIndexExist().execute().code();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		System.out.println(code);
 	}
 }
