@@ -20,14 +20,11 @@ public class JavaClientTest {
 			
 			
 			TransportClient client = new PreBuiltTransportClient(Settings.EMPTY)
-			.addTransportAddress(new InetSocketTransportAddress(InetAddress.getByName("192.168.64.130"),9300));
-			GetResponse response = client.prepareGet("twitter","tweet","1")
+			.addTransportAddress(new InetSocketTransportAddress(InetAddress.getByName("192.168.137.128"),9300));
+			GetResponse response = client.prepareGet("bank","account","1")
 					.execute().actionGet();
 			String a = response.getSourceAsString();
-	//what?
 			System.out.println(a);
 			client.close();
-			//nothing
-		//欧克
 	}
 }

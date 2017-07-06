@@ -8,11 +8,13 @@ public class AccountInfo {
 	private boolean time_out;
 	
 	private Shards _shards;
+	
+	private Hits hits;
 
 	@Override
 	public String toString() {
 		return "AccountInfo [took=" + took + ", time_out=" + time_out
-				+ ", shards=" + _shards + "]";
+				+ ", _shards=" + _shards + ", hits=" + hits + "]";
 	}
 
 	public long getTook() {
@@ -39,4 +41,11 @@ public class AccountInfo {
 		this._shards = _shards;
 	}
 
+	public Hits getHits() {
+		return hits;
+	}
+
+	public void setHits(Hits hits) {
+		this.hits = hits;
+	}
 }
