@@ -12,7 +12,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-public class Retrofit2Demo {
+public class Retrofit2Test {
 	SearchApi searchApi;
 	
 	@Before
