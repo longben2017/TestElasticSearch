@@ -1,14 +1,25 @@
 package com;
 
-import java.util.Arrays;
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Hits {
+	@JsonProperty("total")
 	private long total;
 	
-	private long max_score;
+	@JsonProperty("max_score")
+	private double maxScore;
 	
-	private Hits[] hits;
+	@JsonProperty("hits")
+	private List<HitsEntity> hits;
 	
+	@Override
+	public String toString() {
+		return "Hits [total=" + total + ", maxScore=" + maxScore + ", hits="
+				+ hits + "]";
+	}
+
 	public long getTotal() {
 		return total;
 	}
@@ -17,26 +28,19 @@ public class Hits {
 		this.total = total;
 	}
 
-	public long getMax_score() {
-		return max_score;
+	public double getMaxScore() {
+		return maxScore;
 	}
 
-	public void setMax_score(long max_score) {
-		this.max_score = max_score;
+	public void setMaxScore(double maxScore) {
+		this.maxScore = maxScore;
 	}
 
-	public Hits[] getHits() {
+	public List<HitsEntity> getHits() {
 		return hits;
 	}
 
-	public void setHits(Hits[] hits) {
+	public void setHits(List<HitsEntity> hits) {
 		this.hits = hits;
 	}
-
-	@Override
-	public String toString() {
-		return "Hits [total=" + total + ", max_score=" + max_score + ", hits="
-				+ Arrays.toString(hits) + "]";
-	}
-
 }

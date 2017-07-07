@@ -1,10 +1,15 @@
 package com;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Shards {
+	@JsonProperty("total")
 	private long total;
 	
+	@JsonProperty("successful")
 	private long successful;
 	
+	@JsonProperty("failed")
 	private long failed;
 
 	public long getTotal() {

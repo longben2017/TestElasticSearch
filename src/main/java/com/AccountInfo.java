@@ -1,44 +1,48 @@
 package com;
 
-
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class AccountInfo {
-	private long took;
+	@JsonProperty("took")
+	private int took;
 	
-	private boolean time_out;
+	@JsonProperty("timed_out")
+	private boolean timeOut;
 	
-	private Shards _shards;
+	@JsonProperty("_shards")
+	private Shards shards;
 	
+	@JsonProperty("hits")
 	private Hits hits;
 
 	@Override
 	public String toString() {
-		return "AccountInfo [took=" + took + ", time_out=" + time_out
-				+ ", _shards=" + _shards + ", hits=" + hits + "]";
+		return "AccountInfo [took=" + took + ", timeOut=" + timeOut
+				+ ", shards=" + shards + ", hits=" + hits + "]";
 	}
 
-	public long getTook() {
+	public int getTook() {
 		return took;
 	}
 
-	public void setTook(long took) {
+	public void setTook(int took) {
 		this.took = took;
 	}
 
-	public boolean isTime_out() {
-		return time_out;
+	public boolean isTimeOut() {
+		return timeOut;
 	}
 
-	public void setTime_out(boolean time_out) {
-		this.time_out = time_out;
+	public void setTimeOut(boolean timeOut) {
+		this.timeOut = timeOut;
 	}
 
-	public Shards get_shards() {
-		return _shards;
+	public Shards getShards() {
+		return shards;
 	}
 
-	public void set_shards(Shards _shards) {
-		this._shards = _shards;
+	public void setShards(Shards shards) {
+		this.shards = shards;
 	}
 
 	public Hits getHits() {
