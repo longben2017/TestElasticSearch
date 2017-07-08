@@ -1,4 +1,4 @@
-package com;
+package dto;
 
 import java.util.List;
 
