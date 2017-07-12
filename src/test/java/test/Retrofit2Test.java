@@ -14,6 +14,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import dto.AccountInfo;
+import options.DocumentSearchOptions;
 
 public class Retrofit2Test {
 	SearchApi searchApi;
@@ -55,5 +56,11 @@ public class Retrofit2Test {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	@Test
+	public void testJson(){
+		DocumentSearchOptions options = DocumentSearchOptions.Builder.from(10).size(20);
+		System.out.println(gson.toJson(options));
 	}
 }
